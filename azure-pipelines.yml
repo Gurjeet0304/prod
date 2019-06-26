@@ -18,11 +18,11 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: CopyFiles@2
   inputs:
     Contents: 'hello.yaml'
