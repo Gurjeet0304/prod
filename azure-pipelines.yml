@@ -8,6 +8,8 @@ trigger:
 resources:
 - repo: self
 
+
+
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'b38eceec-aed2-449e-8609-b9cade2aac33'
@@ -17,7 +19,7 @@ variables:
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'inhouse'
 
 stages:
 - stage: Build
