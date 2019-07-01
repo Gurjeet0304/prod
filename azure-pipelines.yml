@@ -43,6 +43,8 @@ stages:
         targetType: 'inline'
         script: |
           git clone https://github.com/Gurjeet0304/prod.git
+          git config --global user.email "gurjeetsahi@gmail.com"
+          git config --global user.name "Gurjeet0304"
           cd prod
           sed -i "s,gurjeet.azurecr.io/gurjeetprod:.*,$(containerRegistry)/$(imageRepository):$(tag),g" hello.yaml
           git commit -a -m "$(tag)"
