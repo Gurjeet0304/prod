@@ -38,6 +38,15 @@ stages:
         tags: |
           $(tag)
 
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: 'git clone git@github.com:Gurjeet0304/prod.git
+          cd prod          
+          sed -i "s,gurjeet.azurecr.io/gurjeetprod:.*,$(containerRegistry)/$(imageRepository):$(tag),g" hello.yaml
+          git commit -a -m "$build"
+          git push origin'
+
     - task: CopyFiles@2
       inputs:
         Contents: 'hello.yaml'
