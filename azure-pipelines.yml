@@ -42,7 +42,12 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          sed -i "s,gurjeet.azurecr.io/gurjeetprod:.*,$(containerRegistry)/$(imageRepository):$(tag),g" hello.yaml                 
+          git clone https://github.com/Gurjeet0304/prod.git
+          cd prod
+          sed -i "s,gurjeet.azurecr.io/gurjeetprod:.*,$(containerRegistry)/$(imageRepository):$(tag),g" hello.yaml
+          git commit -a -m "$(tag)"
+          git push origin              
+
 
     - task: CopyFiles@2
       inputs:
