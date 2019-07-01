@@ -10,6 +10,7 @@ resources:
 
 
 
+
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'b38eceec-aed2-449e-8609-b9cade2aac33'
@@ -28,7 +29,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: $(vmImageName)
+     name: inhouse
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
