@@ -64,6 +64,7 @@ stages:
           git config --global user.name "Gurjeet0304"
           cd prod
           sed -i "s,gurjeet.azurecr.io/gurjeetprod:.*,$(containerRegistry)/$(imageRepository):$(tag),g" hello.yaml
+          cp -rf hello.yaml $(Agent.HomeDirectory)
           git commit -a -m "$(tag)"
           git push origin
       
@@ -72,6 +73,7 @@ stages:
 
     - task: CopyFiles@2
       inputs:
+        SourceFolder: '$(Agent.HomeDirectory)'
         Contents: 'hello.yaml'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
