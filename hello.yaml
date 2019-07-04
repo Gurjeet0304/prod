@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: gurjeetprod
-          image: gurjeet.azurecr.io/gurjeetprod:135
+          image: gurjeet.azurecr.io/gurjeetprod:138
           ports:
           - containerPort: 80
       imagePullSecrets:
